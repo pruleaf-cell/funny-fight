@@ -238,7 +238,7 @@ html, body {
 .hud {
   position: absolute;
   inset: 22px 28px auto;
-  display: grid;
+  display: none;
   grid-template-columns: 1fr auto 1fr;
   gap: 10px;
   pointer-events: none;
@@ -342,4 +342,3 @@ html, body {
   .topbar { padding: 14px 12px 10px; }
   .footer { flex-direction: column; gap: 8px; align-items: flex-start; }
 }
-
