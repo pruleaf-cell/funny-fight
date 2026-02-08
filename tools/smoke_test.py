@@ -52,13 +52,19 @@ def main() -> int:
         assert "ROHAN" in index and "DEV" in index, "index.html should mention both fighters"
         assert "game.js" in index, "index.html should load game.js"
         assert "style.css" in index, "index.html should load style.css"
+        assert "sfxBtn" in index, "index.html should include SFX toggle button"
+        assert "difficulty" in index, "index.html should include AI difficulty select"
+        assert "hudLeftRounds" in index and "hudRightRounds" in index, "index.html should include round indicators"
+        assert "hudLeftCombo" in index and "hudRightCombo" in index, "index.html should include combo indicators"
 
         js = _fetch(f"http://127.0.0.1:{port}/site/game.js")
         assert "AudioContext" in js or "webkitAudioContext" in js, "game.js should include WebAudio"
         assert "ROHAN" in js and "DEV" in js, "game.js should include both fighter names"
+        assert "DASH_TIME" in js and "SUPER READY" in js, "game.js should include dash/super features"
 
         css = _fetch(f"http://127.0.0.1:{port}/site/style.css")
         assert ":root" in css and "--rohan" in css and "--dev" in css, "style.css should include theme vars"
+        assert ".hud__pip" in css and ".hud__combo" in css, "style.css should include upgraded HUD styles"
 
         print("OK: smoke test passed")
         return 0
@@ -71,4 +77,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

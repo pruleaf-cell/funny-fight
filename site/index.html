@@ -17,6 +17,9 @@
           <button id="muteBtn" class="btn btn--ghost" type="button" aria-label="Toggle music">
             Music: ON (M)
           </button>
+          <button id="sfxBtn" class="btn btn--ghost" type="button" aria-label="Toggle sound effects">
+            SFX: ON (N)
+          </button>
         </div>
       </header>
 
@@ -42,14 +45,31 @@
               </button>
             </div>
 
+            <div class="opts">
+              <label class="opt">
+                <span class="opt__label">AI Difficulty</span>
+                <select id="difficulty" class="opt__select" aria-label="AI difficulty">
+                  <option value="easy">Easy</option>
+                  <option value="normal" selected>Normal</option>
+                  <option value="hard">Hard</option>
+                  <option value="boss">Boss</option>
+                </select>
+              </label>
+            </div>
+
             <div class="how">
               <div class="how__title">Controls</div>
               <div class="how__grid">
                 <div class="how__row"><span>Move</span><span>A/D or ←/→</span></div>
                 <div class="how__row"><span>Jump</span><span>W or ↑ or Space</span></div>
+                <div class="how__row"><span>Dash</span><span>Double-tap ←/→</span></div>
+                <div class="how__row"><span>Crouch</span><span>Hold S/↓</span></div>
                 <div class="how__row"><span>Block</span><span>Hold S/↓ + away</span></div>
                 <div class="how__row"><span>Punch / Kick / Special</span><span>J / K / L (or Z / X / C)</span></div>
+                <div class="how__row"><span>Throw</span><span>I (or V)</span></div>
+                <div class="how__row"><span>Super</span><span>Special at 100% meter</span></div>
                 <div class="how__row"><span>Mute</span><span>M</span></div>
+                <div class="how__row"><span>SFX</span><span>N</span></div>
                 <div class="how__row"><span>Restart</span><span>R</span></div>
               </div>
             </div>
@@ -62,10 +82,13 @@
 
         <div id="hud" class="hud" aria-hidden="true">
           <div class="hud__bar hud__bar--left">
-            <div class="hud__name" id="hudLeftName">ROHAN</div>
+            <div class="hud__meta">
+              <div class="hud__name" id="hudLeftName">ROHAN</div>
+              <div class="hud__rounds" id="hudLeftRounds" aria-label="Left rounds won"></div>
+            </div>
             <div class="hud__meter">
+              <div class="hud__hpBack" id="hudLeftHpBack"></div>
               <div class="hud__hp" id="hudLeftHp"></div>
-              <div class="hud__hpBack"></div>
             </div>
             <div class="hud__energy">
               <div class="hud__energyFill" id="hudLeftEnergy"></div>
@@ -75,13 +98,20 @@
           <div class="hud__center">
             <div class="hud__timer" id="hudTimer">99</div>
             <div class="hud__msg" id="hudMsg"></div>
+            <div class="hud__combos" aria-hidden="true">
+              <div class="hud__combo hud__combo--left" id="hudLeftCombo"></div>
+              <div class="hud__combo hud__combo--right" id="hudRightCombo"></div>
+            </div>
           </div>
 
           <div class="hud__bar hud__bar--right">
-            <div class="hud__name" id="hudRightName">DEV</div>
+            <div class="hud__meta">
+              <div class="hud__name" id="hudRightName">DEV</div>
+              <div class="hud__rounds" id="hudRightRounds" aria-label="Right rounds won"></div>
+            </div>
             <div class="hud__meter">
+              <div class="hud__hpBack" id="hudRightHpBack"></div>
               <div class="hud__hp" id="hudRightHp"></div>
-              <div class="hud__hpBack"></div>
             </div>
             <div class="hud__energy">
               <div class="hud__energyFill" id="hudRightEnergy"></div>
@@ -99,4 +129,3 @@
     <script src="./game.js" defer></script>
   </body>
 </html>
-

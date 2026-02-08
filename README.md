@@ -22,11 +22,16 @@ python3 -m http.server 5173
 
 - Move: `A`/`D` or `←`/`→`
 - Jump: `W` or `↑` or `Space`
+- Dash: double-tap `←`/`→`
+- Crouch: hold `S` (or `↓`)
 - Block: hold `S` (or `↓`) + move away from opponent
 - Punch: `J` (or `Z`)
 - Kick: `K` (or `X`)
 - Special: `L` (or `C`)
+- Throw: `I` (or `V`)
+- Super: press Special when meter is at 100%
 - Mute/unmute: `M`
+- Toggle SFX: `N`
 - Restart round: `R`
 
 ## CI deploy (GitHub Pages)
@@ -35,4 +40,3 @@ This repo includes a GitHub Actions workflow that:
 
 1. Runs a smoke test (`tools/smoke_test.py`)
 2. Deploys `/site` to GitHub Pages on pushes to `main`
-
