@@ -807,7 +807,6 @@
       }
 
       this._syncHud();
-      this.input.clearPressed();
     }
 
     _enterKO(winner) {
@@ -1126,9 +1125,23 @@
 
       this._drawBackground(g, cam, shY);
       this._drawFloor(g, cam, shY);
-      this._drawProjectiles(g, cam, shY);
-      this._drawFighter(g, this.f1, cam, shY, this.f2);
-      this._drawFighter(g, this.f2, cam, shY, this.f1);
+      if (this.f1 && this.f2) {
+        this._drawProjectiles(g, cam, shY);
+        this._drawFighter(g, this.f1, cam, shY, this.f2);
+        this._drawFighter(g, this.f2, cam, shY, this.f1);
+      } else {
+        // Pick screen: keep rendering (and avoid crashing) before fighters exist.
+        g.fillStyle = "rgba(0,0,0,0.35)";
+        g.fillRect(0, 0, VIEW_W, VIEW_H);
+        g.fillStyle = "rgba(247,244,255,0.92)";
+        g.font = "16px ui-monospace, Menlo, Monaco, monospace";
+        g.textAlign = "center";
+        g.textBaseline = "middle";
+        g.fillText("PICK YOUR FIGHTER", VIEW_W / 2, VIEW_H / 2 - 10);
+        g.fillStyle = "rgba(247,244,255,0.65)";
+        g.font = "10px ui-monospace, Menlo, Monaco, monospace";
+        g.fillText("(Rohan or Dev)  then press R to rematch later", VIEW_W / 2, VIEW_H / 2 + 14);
+      }
 
       // Scanlines + noise (intentionally gross)
       this._drawVHS(g);
@@ -1436,4 +1449,3 @@
   });
 
 })();
-
