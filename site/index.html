@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funny Fight</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand__title">FUNNY FIGHT</div>
+          <div class="brand__sub">Rohan vs Dev</div>
+        </div>
+        <div class="topbar__right">
+          <button id="muteBtn" class="btn btn--ghost" type="button" aria-label="Toggle music">
+            Music: ON (M)
+          </button>
+        </div>
+      </header>
+
+      <section class="stage">
+        <canvas id="game" class="stage__canvas" width="960" height="540" aria-label="Funny Fight canvas"></canvas>
+
+        <div id="overlay" class="overlay" role="dialog" aria-modal="true">
+          <div class="overlay__panel">
+            <div class="overlay__logo">
+              <div class="overlay__logoTop">FUNNY</div>
+              <div class="overlay__logoBottom">FIGHT</div>
+            </div>
+            <p class="overlay__tag">Pick your fighter. The other becomes the AI.</p>
+
+            <div class="pick">
+              <button id="pickRohan" class="pick__btn pick__btn--rohan" type="button">
+                <span class="pick__name">ROHAN</span>
+                <span class="pick__desc">Fast hands. Neon discipline.</span>
+              </button>
+              <button id="pickDev" class="pick__btn pick__btn--dev" type="button">
+                <span class="pick__name">DEV</span>
+                <span class="pick__desc">Bigger hits. VHS chaos.</span>
+              </button>
+            </div>
+
+            <div class="how">
+              <div class="how__title">Controls</div>
+              <div class="how__grid">
+                <div class="how__row"><span>Move</span><span>A/D or ←/→</span></div>
+                <div class="how__row"><span>Jump</span><span>W or ↑ or Space</span></div>
+                <div class="how__row"><span>Block</span><span>Hold S/↓ + away</span></div>
+                <div class="how__row"><span>Punch / Kick / Special</span><span>J / K / L (or Z / X / C)</span></div>
+                <div class="how__row"><span>Mute</span><span>M</span></div>
+                <div class="how__row"><span>Restart</span><span>R</span></div>
+              </div>
+            </div>
+
+            <p class="overlay__hint">
+              Tip: click anywhere to unlock audio. This is intentionally loud and terrible.
+            </p>
+          </div>
+        </div>
+
+        <div id="hud" class="hud" aria-hidden="true">
+          <div class="hud__bar hud__bar--left">
+            <div class="hud__name" id="hudLeftName">ROHAN</div>
+            <div class="hud__meter">
+              <div class="hud__hp" id="hudLeftHp"></div>
+              <div class="hud__hpBack"></div>
+            </div>
+            <div class="hud__energy">
+              <div class="hud__energyFill" id="hudLeftEnergy"></div>
+            </div>
+          </div>
+
+          <div class="hud__center">
+            <div class="hud__timer" id="hudTimer">99</div>
+            <div class="hud__msg" id="hudMsg"></div>
+          </div>
+
+          <div class="hud__bar hud__bar--right">
+            <div class="hud__name" id="hudRightName">DEV</div>
+            <div class="hud__meter">
+              <div class="hud__hp" id="hudRightHp"></div>
+              <div class="hud__hpBack"></div>
+            </div>
+            <div class="hud__energy">
+              <div class="hud__energyFill" id="hudRightEnergy"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer__left">Made for /Users/gray/Documents/Funny Fight</div>
+        <div class="footer__right">Press R to rematch. Press M to mute.</div>
+      </footer>
+    </main>
+
+    <script src="./game.js" defer></script>
+  </body>
+</html>
+
