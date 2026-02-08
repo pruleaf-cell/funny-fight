@@ -881,6 +881,8 @@
       this.f1.comboT = this.f2.comboT = 0;
       this.f1.buf = { jump: 0, punch: 0, kick: 0, special: 0, throw: 0 };
       this.f2.buf = { jump: 0, punch: 0, kick: 0, special: 0, throw: 0 };
+      this.f1.lastTapL = this.f1.lastTapR = -9999;
+      this.f2.lastTapL = this.f2.lastTapR = -9999;
 
       this.state.phase = "intro";
       this.state.timer = 99;
